@@ -12,6 +12,7 @@ fn main() {
         Ok(file) => file,
     };
 
+    // Write text to file
     let mut _input = String::new();
 
     println!("Enter your name: ");
