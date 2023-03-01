@@ -17,8 +17,11 @@ fn main() {
 
     println!("Enter your name: ");
     std::io::stdin().read_line(&mut _input).expect("input failed");
-
-    file.write_all(&mut _input.as_bytes()).expect("write file");
+    
+    match file.write_all(&mut _input.as_bytes()) {
+        Ok(file) => file,
+        Err(reason) => panic!("write file to {} failed: {}", display, reason)
+    }
 
     // Read text from file
     let mut file_reader = match File::open(&path) {
